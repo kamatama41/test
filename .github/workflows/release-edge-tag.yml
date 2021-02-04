@@ -4,9 +4,9 @@ on: issue_comment
 jobs:
   release-edge-tag:
     runs-on: ubuntu-latest
+    if: github.event.issue.pull_request && startsWith(github.event.comment.body, '/release')
     steps:
       - name: update release-edge tag
-        if: github.event.issue.pull_request && startsWith(github.event.comment.body, 'release-edge-')
         run: |
           echo "$GITHUB_CONTEXT"
 #          ECR_REGISTRY=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com
