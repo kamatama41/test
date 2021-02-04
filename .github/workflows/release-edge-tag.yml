@@ -4,7 +4,8 @@ on: issue_comment
 jobs:
   release-edge-tag:
     runs-on: ubuntu-latest
-    if: github.event.issue.pull_request && startsWith(github.event.comment.body, '/release')
+#    if: github.event.issue.pull_request && startsWith(github.event.comment.body, '/release')
+    if: startsWith(github.event.comment.body, '/release')
     steps:
       - name: update release-edge tag
         run: |
