@@ -10,6 +10,7 @@ jobs:
       - name: update release-edge tag
         run: |
           echo "$GITHUB_CONTEXT"
+          gh pr status
 #          ECR_REGISTRY=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com
 #          aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login -u AWS --password-stdin ${ECR_REGISTRY}
 #          if [[ "${GITHUB_REF#refs/tags/}" =~ ^release-edge-(r[0-9]{8})$ ]]; then
